@@ -109,7 +109,12 @@ fn main() {
     guess_the_index();
 }
 
-// invalid array element access
+/* invalid array element access
+    The below code compiles successfully. If you run this code using `cargo run` and enter 0, 1, 2, 3 or 4, the program will print out the corressponding
+    value at that index in the array. If you insted enter a number past the end of the array, such as 10, you'll see output like this:
+        !thread 'main' panicked at 'index out of bounds: the len is 5 but the index is 10', src/main.rs:129:19
+        !note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+*/
 fn guess_the_index() {
     let a = [1, 2, 3, 4, 5];
 
