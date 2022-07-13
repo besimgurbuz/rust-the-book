@@ -1,3 +1,5 @@
+mod references_and_borrowing;
+
 fn main() {
   // Variable Scope
   // A scope is the range within a program for which an item is valid. Take the following variable:
@@ -126,6 +128,8 @@ fn main() {
   println!("The length of '{s2}' is {len}");
 
   // But this is too much ceremony and lot of work for a concept that sould be common. Luckily for us, Rust has a feature for using a value withou transferring ownership, called references.
+
+  references_and_borrowing::main_fn();
 }
 
 fn takes_ownership(some_string: String) {
