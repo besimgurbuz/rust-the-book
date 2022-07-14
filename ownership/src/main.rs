@@ -1,4 +1,5 @@
 mod references_and_borrowing;
+mod slices;
 
 fn main() {
   // Variable Scope
@@ -130,6 +131,7 @@ fn main() {
   // But this is too much ceremony and lot of work for a concept that sould be common. Luckily for us, Rust has a feature for using a value withou transferring ownership, called references.
 
   references_and_borrowing::main_fn();
+  slices::main_fn();
 }
 
 fn takes_ownership(some_string: String) {
