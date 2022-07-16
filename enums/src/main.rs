@@ -1,3 +1,5 @@
+mod if_let;
+mod match_control_flow;
 // Defining an Enum
 // Enums are a way of defining custom data types in a different way than you do with structs.
 // An enum value can only be on of its variants.
@@ -97,6 +99,17 @@ impl Message {
 // handled all the cases you should be handling; this functionality can prevent bugs that are extremely common in other
 // programming languages.
 
+// Rust doesn't have the null feature.
+// Howeever, the concept that null is trying to express is still a useful one: a null is a value that is currently invalid
+// or absent for some reason.
+// Rust have Option<T> enum that can encode the concept of value being present or absent.
+// enum Option<T> {
+//     None,
+//     Some(T),
+// }
+// The Option<T> enum is so useful that it's even included in the prelude; you don't need to bring it into scope explicity.
+// It's variants are also included in the prelude: you can use Some and None directly without the Option:: prefix.
+
 fn main() {
     let four = IpAddrKind::V4;
     let six = IpAddrKind::V6;
@@ -119,4 +132,13 @@ fn main() {
 
     let message = Message::Write(String::from("hello"));
     message.call();
+
+    // T makes overall Option<T> type a different type. For example;
+
+    let some_number = Some(5); // Option<i32>
+    let some_string = Some("a string"); // Option<&str>
+
+    let absent_number: Option<i32> = None;
+    match_control_flow::main_fn();
+    if_let::main_fn();
 }
